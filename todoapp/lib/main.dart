@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'models/global.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
       home: MyHomePage(title: 'ToDo App'),
     );
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
               TabBarView(
                 children: [
                   new Container(
-                    color: Colors.yellow,
+                    color: darkGreyColor,
                   ),
                   new Container(
                     color: Colors.orange,
@@ -69,35 +70,57 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               Container(
-                height: 100,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30)),
-                  color: Colors.white,
-                ),
-              )
+                  padding: EdgeInsets.only(left: 50),
+                  height: 160,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(50),
+                        bottomRight: Radius.circular(50)),
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        "Intray",
+                        style: intrayTitleStyle,
+                      ),
+                      Container()
+                    ],
+                  )),
+              Container(
+                  height: 60,
+                  width: 60,
+                  margin: EdgeInsets.only(
+                      top: 130,
+                      left: MediaQuery.of(context).size.width * 0.5 - 30),
+                  child: FloatingActionButton(
+                    child: Icon(Icons.add),
+                    backgroundColor: redColor,
+                    onPressed: () {},
+                  ))
             ]),
             appBar: AppBar(
-              elevation: 0,
-              title: new TabBar(
-                tabs: [
-                  Tab(
-                    icon: new Icon(Icons.home),
-                  ),
-                  Tab(
-                    icon: new Icon(Icons.rss_feed),
-                  ),
-                  Tab(
-                    icon: new Icon(Icons.perm_identity),
-                  ),
-                ],
-                labelColor: Colors.yellow,
-                unselectedLabelColor: Colors.blue,
-                indicatorSize: TabBarIndicatorSize.label,
-                indicatorPadding: EdgeInsets.all(5.0),
-              ),
-            ),
+                elevation: 0,
+                title: new TabBar(
+                  tabs: [
+                    Tab(
+                      icon: new Icon(Icons.home),
+                    ),
+                    Tab(
+                      icon: new Icon(Icons.rss_feed),
+                    ),
+                    Tab(
+                      icon: new Icon(Icons.perm_identity),
+                    ),
+                  ],
+                  labelColor: darkGreyColor,
+                  unselectedLabelColor: Colors.blue,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicatorPadding: EdgeInsets.all(5.0),
+                  indicatorColor: Colors.transparent,
+                ),
+                backgroundColor: Colors.white),
             backgroundColor: Colors.black,
           ),
         ),
