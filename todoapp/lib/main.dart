@@ -48,48 +48,55 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: MaterialApp(
-        color: Colors.yellow,
-        home: DefaultTabController(
-          length: 4,
+    return MaterialApp(
+      color: Colors.yellow,
+      home: SafeArea(
+        child: DefaultTabController(
+          length: 3,
           child: new Scaffold(
-            body: TabBarView(
-              children: [
-                new Container(
-                  color: Colors.yellow,
+            body: Stack(children: <Widget>[
+              TabBarView(
+                children: [
+                  new Container(
+                    color: Colors.yellow,
+                  ),
+                  new Container(
+                    color: Colors.orange,
+                  ),
+                  new Container(
+                    color: Colors.lightGreen,
+                  ),
+                ],
+              ),
+              Container(
+                height: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30)),
+                  color: Colors.white,
                 ),
-                new Container(
-                  color: Colors.orange,
-                ),
-                new Container(
-                  color: Colors.lightGreen,
-                ),
-                new Container(
-                  color: Colors.red,
-                ),
-              ],
-            ),
-            appBar: new TabBar(
-              tabs: [
-                Tab(
-                  icon: new Icon(Icons.home),
-                ),
-                Tab(
-                  icon: new Icon(Icons.rss_feed),
-                ),
-                Tab(
-                  icon: new Icon(Icons.perm_identity),
-                ),
-                Tab(
-                  icon: new Icon(Icons.settings),
-                )
-              ],
-              labelColor: Colors.yellow,
-              unselectedLabelColor: Colors.blue,
-              indicatorSize: TabBarIndicatorSize.label,
-              indicatorPadding: EdgeInsets.all(5.0),
-              indicatorColor: Colors.red,
+              )
+            ]),
+            appBar: AppBar(
+              elevation: 0,
+              title: new TabBar(
+                tabs: [
+                  Tab(
+                    icon: new Icon(Icons.home),
+                  ),
+                  Tab(
+                    icon: new Icon(Icons.rss_feed),
+                  ),
+                  Tab(
+                    icon: new Icon(Icons.perm_identity),
+                  ),
+                ],
+                labelColor: Colors.yellow,
+                unselectedLabelColor: Colors.blue,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorPadding: EdgeInsets.all(5.0),
+              ),
             ),
             backgroundColor: Colors.black,
           ),
