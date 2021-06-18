@@ -4,8 +4,8 @@ import 'package:todoapp/models/global.dart';
 
 class IntrayTodo extends StatelessWidget {
   final String title;
-  final String keyValue;
-  IntrayTodo({required this.keyValue, required this.title});
+  final String? keyValue;
+  IntrayTodo({this.keyValue, required this.title});
 
   @override
   Widget build(BuildContext context) {
